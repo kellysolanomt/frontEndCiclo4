@@ -5,8 +5,8 @@ function loginUsuario() {
         let passwordValor = $("#passwordLoUs").val();
 
         $.ajax({
-            //url: "http://localhost:80/api/user/" + emailValor + "/" + passwordValor,
-            url: "http://localhost:8080/api/user/" + emailValor + "/" + passwordValor,
+            // url: "http://localhost:8080/api/user/" + emailValor + "/" + passwordValor,
+            url: "http://152.70.213.108:8080/api/user/" + emailValor + "/" + passwordValor,
             type: "GET",
             datatype: "JSON",
             success: function (respuesta) {
@@ -50,31 +50,6 @@ function validarEmail(email) {
     }
 }
 
-// function validarExistencia() {
-//     let emailValor = $("#useremailLo").val();
-//     let passwordValor = $("#passwordLo").val();
-
-//     $.ajax({
-//         //url:"http://168.138.124.98:80/api/user/new",
-//         url: "http://localhost:8081/api/user/" + emailValor + "/" + passwordValor,
-//         type: "GET",
-//         datatype: "JSON",
-//         success: function (respuesta) {
-//             if (respuesta.name == "NO DEFINIDO") {
-//                 alert("Usuario y/o contraseña no coinciden o no se encontro el usuario");
-//                 window.location.reload();
-//                 return false;
-//             } else {
-//                 console.log("El usuario ya existe");
-//                 alert("Bienvenido " + respuesta.name);
-//                 return true;
-//             }
-//         },
-//         error: function (jdXHR, textStatus, errorThrown) {
-//             console.log(jdXHR, textStatus, errorThrown);
-//         }
-//     });
-// }
 
 function paginaInicio() {
     window.location = "portalAdmin.html";

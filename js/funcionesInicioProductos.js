@@ -1,7 +1,7 @@
 function traerInfoClothe() {
     $.ajax({
-        //url:"http://168.138.124.98:80/api/user/all",
-        url: "http://localhost:8080/api/clothe/all",
+        // url: "http://localhost:8080/api/clothe/all",
+        url: "http://152.70.213.108:8080/api/clothe/all",
         type: "GET",
         datatype: "JSON",
         success: function (productos) {
@@ -43,7 +43,8 @@ function obtItemEspClothe(numRef) {
     console.log(referenciaCom);
 
     $.ajax({
-        url: "http://localhost:8080/api/clothe/" + referenciaCom,
+        // url: "http://localhost:8080/api/clothe/" + referenciaCom,
+        url: "http://152.70.213.108:8080/api/clothe/" + referenciaCom,
         type: "GET",
         datatype: "JSON",
         success: function (producto) {
@@ -69,8 +70,8 @@ function borrarElementoClothe(numRef) {
 
     console.log("Entro");
     $.ajax({
-        //url: "http://152.70.213.108:8080/api/clothe/newUser",
-        url: "http://localhost:8080/api/clothe/" + referenciaCom,
+        // url: "http://localhost:8080/api/clothe/" + referenciaCom,
+        url: "http://152.70.213.108:8080/api/clothe/" + referenciaCom,
         type: "DELETE",
         datatype: "JSON",
         headers: {
@@ -101,8 +102,8 @@ function editarInfoClothe(){
         photography: $("#clothePhotoEditar").val()
     };
     $.ajax({
-        //url: "http://152.70.213.108:8080/api/clothe/update",
-        url: "http://localhost:8080/api/clothe/update",
+        // url: "http://localhost:8080/api/clothe/update",
+        url: "http://152.70.213.108:8080/api/clothe/update",
         type: "PUT",
         data: myData,
         contentType: "application/json; charset=utf-8",

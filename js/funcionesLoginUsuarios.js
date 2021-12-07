@@ -5,8 +5,8 @@ function loginUsuario() {
         let passwordValor = $("#passwordLoUs").val();
 
         $.ajax({
-            //url: "http://localhost:80/api/user/" + emailValor + "/" + passwordValor,
-            url: "http://localhost:8080/api/user/" + emailValor + "/" + passwordValor,
+            // url: "http://localhost:8080/api/user/" + emailValor + "/" + passwordValor,
+            url: "http://152.70.213.108:8080/api/user/" + emailValor + "/" + passwordValor,
             type: "GET",
             datatype: "JSON",
             success: function (respuesta) {

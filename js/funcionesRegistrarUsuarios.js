@@ -3,8 +3,8 @@ function registrarUsuario() {
 
         let emailValor = $("#useremailRe").val();
         $.ajax({
-            //url:"http://152.70.213.108:8080/api/emailexist/" + emailValor,
-            url:"http://localhost:8080/api/user/emailexist/" + emailValor,
+            // url:"http://localhost:8080/api/user/emailexist/" + emailValor,
+            url:"http://152.70.213.108:8080/api/user/emailexist/" + emailValor,
             type: "GET",
             datatype: "JSON",
             headers: {
@@ -26,8 +26,8 @@ function registrarUsuario() {
                         type : $("#usertypeRe").val()
                     };
                     $.ajax({
-                        //url: "http://152.70.213.108:8080/api/user/newUser",
-                        url: "http://localhost:8080/api/user/newUser",
+                        // url: "http://localhost:8080/api/user/newUser",
+                        url: "http://152.70.213.108:8080/api/user/newUser",
                         type: "POST",
                         data: myData,
                         contentType: "application/json; charset=utf-8",
@@ -51,30 +51,6 @@ function registrarUsuario() {
             }
         });
     }
-    // if (emailExiste() == false) {
-    //     let myData = {
-    //         email: $("#useremailRe").val(),
-    //         password: $('#passwordRe').val(),
-    //         name: $('#usernameRe').val()
-    //     };
-    //     $.ajax({
-    //         // url:"http://168.138.124.98:80/api/user/new",
-    //         url: "http://localhost:8081/api/user/new",
-    //         type: "POST",
-    //         data: myData,
-    //         contentType: "application/json; charset=utf-8",
-    //         datatype: "JSON",
-    //         data: JSON.stringify(myData),
-    //         success: function () {
-    //             alert("Se ha registrado exitosamente");
-    //             window.location.reload();
-    //         },
-    //         error: function (jdXHR, textStatus, errorThrown) {
-    //             alert("No se ha registrado exitosamente");
-    //         }
-    //     });
-    // }
-    //emailExiste()==false && 
 
 }
 
@@ -111,71 +87,3 @@ function validarCoinciContra() {
     }
 }
 
-// function validarExistencia() {
-//     let emailValor = $("#useremailRe").val();
-//     let passwordValor = $("#passwordRe").val();
-
-//     $.ajax({
-//         //url:"http://168.138.124.98:80/api/user/new",
-//         url: "http://localhost:8081/api/user/"+emailValor+"/"+passwordValor,
-//         type: "GET",
-//         datatype: "JSON",
-//         success: function (respuesta) {
-//             if(respuesta.name != "NO DEFINIDO"){
-//                 alert("Usuario y/o contraseña ya existen, cree un nuevo usuario");
-//                 window.location.reload();
-//                 return false;
-//             }
-
-//         },
-//         error: function (jdXHR, textStatus, errorThrown) {
-//             console.log("El usuario no existe");
-//             return true;
-//         }
-//     });
-// }
-
-// function emailExiste() {
-//     let emailValor = $("#useremailRe").val();
-//     $.ajax({
-//         //url:"http://168.138.124.98:80/api/user/new",
-//         url: "http://localhost:8081/api/user/" + emailValor,
-//         type: "GET",
-//         datatype: "JSON",
-//         success: function (respuesta) {
-//             if (respuesta == true) {
-//                 alert("El email esta asociado a un usuario existente, por favor cambielo");
-//                 return true;
-//             }
-//         },
-//         error: function (jdXHR, textStatus, errorThrown) {
-//             console.log("El usuario ya existe");
-//             return false;
-//         }
-//     });
-// }
-
-// function validarExistencia() {
-//     let emailValor = $("#useremailRe").val();
-//     let passwordValor = $("#passwordRe").val();
-
-//     $.ajax({
-//         //url:"http://168.138.124.98:80/api/user/new",
-//         url: "http://localhost:8081/api/user/" + emailValor + "/" + passwordValor,
-//         type: "GET",
-//         datatype: "JSON",
-//         success: function (respuesta) {
-//             if (respuesta.name == "NO DEFINIDO") {
-//                 alert("Usuario y/o contraseña no coinciden o no se encontro el usuario");
-//                 window.location.reload();
-//                 return false;
-//             } else {
-//                 console.log("El usuario ya existe");
-//                 return true;
-//             }
-//         },
-//         error: function (jdXHR, textStatus, errorThrown) {
-
-//         }
-//     });
-// }

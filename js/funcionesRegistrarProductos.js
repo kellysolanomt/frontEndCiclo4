@@ -12,8 +12,8 @@ function registrarProductos() {
             photography: $("#prodPhotographyRe").val()
         };
         $.ajax({
-            //url: "http://152.70.213.108:8080/api/clothe/new",
-            url: "http://localhost:8080/api/clothe/new",
+            // url: "http://localhost:8080/api/clothe/new",
+            url: "http://152.70.213.108:8080/api/clothe/new",
             type: "POST",
             data: myData,
             contentType: "application/json; charset=utf-8",

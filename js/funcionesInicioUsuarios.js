@@ -1,7 +1,7 @@
 function traerInfoUser() {
     $.ajax({
-        //url:"http://168.138.124.98:80/api/user/all",
-        url: "http://localhost:8080/api/user/all",
+        // url: "http://localhost:8080/api/user/all",
+        url: "http://152.70.213.108:8080/api/user/all",
         type: "GET",
         datatype: "JSON",
         success: function (usuarios) {
@@ -36,8 +36,8 @@ function pintarRespUser(usuarios) {
 function borrarElementoUser(idUser) {
     let id = idUser;
     $.ajax({
-        //url: "http://152.70.213.108:8080/api/user/newUser",
-        url: "http://localhost:8080/api/user/" + id,
+        // url: "http://localhost:8080/api/user/" + id,
+        url: "http://152.70.213.108:8080/api/user/" + id,
         type: "DELETE",
         datatype: "JSON",
         headers: {
@@ -56,7 +56,8 @@ function borrarElementoUser(idUser) {
 function obtItemEspUser(idUser) {
     let id = idUser;
     $.ajax({
-        url: "http://localhost:8080/api/user/" + id,
+        // url: "http://localhost:8080/api/user/" + id,
+        url: "http://152.70.213.108:8080/api/user/" + id,
         type: "GET",
         datatype: "JSON",
         success: function (usuario) {
@@ -92,8 +93,8 @@ function editarInfoUser(){
         type: $("#userTypeEditar").val()
     };
     $.ajax({
-        //url: "http://152.70.213.108:8080/api/user/update",
-        url: "http://localhost:8080/api/user/update",
+        // url: "http://localhost:8080/api/user/update",
+        url: "http://152.70.213.108:8080/api/user/update",
         type: "PUT",
         data: myData,
         contentType: "application/json; charset=utf-8",

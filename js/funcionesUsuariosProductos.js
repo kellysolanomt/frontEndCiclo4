@@ -1,7 +1,7 @@
 function traerInfoClothe() {
     $.ajax({
-        //url:"http://168.138.124.98:80/api/user/all",
-        url: "http://localhost:8080/api/clothe/all",
+        // url: "http://localhost:8080/api/clothe/all",
+        url: "http://152.70.213.108:8080/api/clothe/all",
         type: "GET",
         datatype: "JSON",
         success: function (productos) {
