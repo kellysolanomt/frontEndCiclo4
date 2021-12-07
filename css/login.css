@@ -1,7 +1,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #6593A6;
+  /* background-color: #6593A6; */
+  background-image: url(../img/fondoNubes);
   height: 100vh;
 }
 #login .container #login-row #login-column #login-box {
@@ -12,7 +13,7 @@ body {
   background-color: #F2F2F2;
 }
 #login .container #login-row #login-column #login-box #login-form {
-  padding: 20px;
+  padding: 18px;
 }
 #login
   .container
@@ -25,8 +26,8 @@ body {
 }
 
 img{
-  width: 5%;
+  width: 7%;
 }
 h1{
-background-color: #58595B;
+background-color: #F2C063;
 }

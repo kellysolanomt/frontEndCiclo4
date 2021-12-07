@@ -3,28 +3,39 @@ function registrarUsuario() {
 
         let emailValor = $("#useremailRe").val();
         $.ajax({
-            url:"http://168.138.124.98:80/api/user/" + emailValor,
-            //url: "http://localhost:8081/api/user/" + emailValor,
+            //url:"http://152.70.213.108:8080/api/emailexist/" + emailValor,
+            url:"http://localhost:8080/api/user/emailexist/" + emailValor,
             type: "GET",
             datatype: "JSON",
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            },
             success: function (respuesta) {
                 if (respuesta == true) {
                     alert("El email esta asociado a un usuario existente, por favor cambielo");
                     
                 }else{
                     let myData = {
-                        email: $("#useremailRe").val(),
-                        password: $('#passwordRe').val(),
-                        name: $('#usernameRe').val()
+                        identification : $("#useridentificationRe").val(),
+                        name : $("#usernameRe").val(),
+                        address : $("#useraddressRe").val(),
+                        cellPhone : $("#usercellphoneRe").val(),
+                        email : $("#useremailRe").val(),
+                        password : $("#passwordRe").val(),
+                        zone : $("#userzoneRe").val(),
+                        type : $("#usertypeRe").val()
                     };
                     $.ajax({
-                        // url:"http://168.138.124.98:80/api/user/new",
-                        url: "http://localhost:8081/api/user/new",
+                        //url: "http://152.70.213.108:8080/api/user/newUser",
+                        url: "http://localhost:8080/api/user/newUser",
                         type: "POST",
                         data: myData,
                         contentType: "application/json; charset=utf-8",
                         datatype: "JSON",
                         data: JSON.stringify(myData),
+                        headers: {
+                            'Access-Control-Allow-Origin': '*'
+                        },
                         success: function () {
                             alert("Se ha registrado exitosamente");
                             window.location.reload();
@@ -69,7 +80,11 @@ function registrarUsuario() {
 
 
 function validarCampos() {
-    if ($("#usernameRe").val().length == 0 || $("#useremailRe").val().length == 0 || $("#passwordRe").val().length == 0) {
+    if ($("#useridentificationRe").val().length == 0 ||$("#usernameRe").val().length == 0 || 
+        $("#useraddressRe").val().length == 0 ||$("#usercellphoneRe").val().length == 0 || 
+        $("#useremailRe").val().length == 0 ||$("#passwordRe").val().length == 0 ||
+        $("#passwordrepeatRe").val().length == 0 ||$("#userzoneRe").val().length == 0 ||
+        $("#usertypeRe").val().length == 0) {
         alert("Alguno o varios campos están vacios");
         return false;
     } else {

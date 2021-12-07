@@ -1,22 +1,26 @@
 function loginUsuario() {
-    if (validarCampos() == true && validarEmail($("#useremailLo").val()) == true) {
-        let emailValor = $("#useremailLo").val();
-        let passwordValor = $("#passwordLo").val();
+    if (validarCampos() == true && validarEmail($("#useremailLoUs").val()) == true) {
+        
+        let emailValor = $("#useremailLoUs").val();
+        let passwordValor = $("#passwordLoUs").val();
 
         $.ajax({
-            //url: "http://localhost:8081/api/user/" + emailValor + "/" + passwordValor,
-            url: "http://168.138.124.98:80/api/user/" + emailValor + "/" + passwordValor,
+            //url: "http://localhost:80/api/user/" + emailValor + "/" + passwordValor,
+            url: "http://localhost:8080/api/user/" + emailValor + "/" + passwordValor,
             type: "GET",
             datatype: "JSON",
             success: function (respuesta) {
                 if (respuesta.name == "NO DEFINIDO") {
                     alert("Usuario y/o contraseña no coinciden o no se encontro el usuario");
                     window.location.reload();
-                } else {
+                } else if(respuesta.type == "ADM"){
                     console.log("El usuario ya existe");
                     alert("Bienvenido " + respuesta.name);
                     paginaInicio();
-                }
+                    }else{
+                        alert("El usuario ingresado no es de tipo ADMINISTRADOR, por favor inicie sesión donde corresponde");
+                        window.location.reload();
+                    }
             },
             error: function (jdXHR, textStatus, errorThrown) {
                 console.log(jdXHR, textStatus, errorThrown);
@@ -28,7 +32,7 @@ function loginUsuario() {
 
 
 function validarCampos() {
-    if ($("#useremailLo").val().length == 0 || $("#passwordLo").val().length == 0) {
+    if ($("#useremailLoUs").val().length == 0 || $("#passwordLoUs").val().length == 0) {
         alert("Alguno o varios campos están vacios");
         return false;
     } else {
@@ -72,6 +76,6 @@ function validarEmail(email) {
 //     });
 // }
 
-function paginaInicio(nombre) {
-    window.location = "/frontreto1/inicio.html";
+function paginaInicio() {
+    window.location = "portalAdmin.html";
 }
